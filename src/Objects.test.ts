@@ -122,6 +122,8 @@ describe('Работа с объектами', () => {
                 { value: true, id: 2, obj },
             ]);
             // @ts-ignore
+            console.log(result[0].obj);
+            console.log(obj);
             expect(result[0].obj).not.toBe(obj);
         });
     });
