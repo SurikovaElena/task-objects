@@ -43,6 +43,16 @@ export function objectFieldsList(obj1, obj2, obj3) {
   Количество клонов - count.
 */
 export function objectClone(obj, count) {
+    let objArray = [];
+    for (let i = 0; i < count; i++) {
+        let newObj = structuredClone(obj);
+        newObj.id = i;
+        objArray.push(newObj);
+    }
+    return objArray;
+}
+
+export function objectClone1(obj, count) {
     let arrayCloneObject = [];
     for (let i = 0; i < count; i++) {
         arrayCloneObject[i] = { id: i, ...obj };
@@ -50,7 +60,7 @@ export function objectClone(obj, count) {
     return arrayCloneObject;
 }
 
-export function objectClone1(obj, count) {
+export function objectClone2(obj, count) {
     let arrayCloneObject = [];
     let clone = {},
         flagObject = 0,
@@ -77,4 +87,14 @@ export function objectClone1(obj, count) {
         arrayCloneObject[i] = { id: i, ...clone };
     }
     return arrayCloneObject;
+}
+
+export function objectClone3(obj, count) {
+    let objArray = [];
+    for (let i = 0; i < count; i++) {
+        const newObj = JSON.parse(JSON.stringify(obj));
+        newObj.id = i;
+        objArray.push(newObj);
+    }
+    return objArray;
 }
